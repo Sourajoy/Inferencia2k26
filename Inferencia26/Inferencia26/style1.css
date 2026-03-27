@@ -576,7 +576,7 @@ button {
     }
 
     .inferencia span {
-    font-size: clamp(50px, 20vw, 40px); /* 🔥 BIGGER */
+    font-size: clamp(50px, 20vw, 53px); /* 🔥 BIGGER */
     }
 
     
