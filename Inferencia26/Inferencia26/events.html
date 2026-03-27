@@ -1,0 +1,1076 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* BODY */
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at center, #020617, #000);
+            color: white;
+            display: block;
+            padding: 100px 20px 20px 20px; 
+        }
+
+        .hero-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+        }
+
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 2rem;
+            max-width: 1600px;
+        }
+
+        .logo-img {
+            height: 100px;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .navbar-menu li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            padding: 5px 15px;
+            border: 2px solid transparent;
+            transition: 0.4s;
+        }
+
+        .navbar-menu li a:hover {
+            background: rgba(33,33,33,0.7);
+            border: 2px solid white;
+        }
+
+        .navbar-toggle {
+            display: none;
+            background: transparent;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background: white;
+            transition: all 0.3s ease-in-out;
+        }
+
+        @media (max-width: 880px) {
+            body {
+                background-size: 600px 950px;
+                background-attachment: fixed;
+            }
+            .navbar { backdrop-filter: none; }
+            .navbar-container .navbar-menu {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.7rem !important;
+                position: absolute;
+                height: 100vh;
+                width: 250px;
+                top: 0;
+                right: 0;
+                padding: 5rem 1.5rem;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+                backdrop-filter: blur(100px);
+                background: rgba(0,0,0,0.8);
+            }
+            .navbar-container .navbar-menu.active { display: flex; }
+            .navbar-toggle { display: block; z-index: 999; }
+        }
+.item {
+            padding: 40px 80px;
+            font-size: 24px;
+            width: 95%; /* Increased from original */
+            max-width: 1000px; /* Increased width to 1000px */
+            height: auto;
+            color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+            transition: 0.4s;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 30px auto;
+        }
+
+        .item:hover {
+            box-shadow: 0 0 25px white, 0 0 50px white;
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 768px) {
+            .item {
+                font-size: 16px;
+                width: 90%;
+                padding: 20px;
+            }
+        }
+
+        .card-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.6), 0 0 15px rgba(71, 71, 71, 0.6);
+            margin-bottom: 15px;
+        }
+
+        /* --- UPDATED RESPONSIVE CONTAINER --- */
+        .responsive-container {
+            max-width: 800px; /* Narrower container looks better for 1 column */
+            margin: 50px auto;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .grid-layout {
+            display: grid;
+            /* Changed to exactly 1 column */
+            grid-template-columns: 1fr; 
+            gap: 30px;
+        }
+
+        .glow-card {
+            position: relative;
+            background: #0f172a;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .glow-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2), 0 0 40px rgba(59, 130, 246, 0.3);
+        }
+
+        .card-cover-img {
+            width: 100%;
+            height: 500px; /* Slightly taller for 1-column layout */
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .guidelines-btn {
+            margin-top: 15px;
+            padding: 12px 30px;
+            background: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .guidelines-btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        @media (max-width: 480px) {
+            .navbar-container { padding: 0 1rem; }
+            .item { padding: 20px 30px; }
+            .responsive-container { padding: 15px; margin: 20px auto; }
+            .card-cover-img { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index1.html">
+                <img src="logo_bg_remv.png" class="logo-img">
+            </a>
+            <ul class="navbar-menu">
+                <li><a href="index1.html">Home</a></li>
+                <li><a href="index1.html#about">About</a></li>
+                <li><a href="events.html">Event</a></li>
+                <li><a href="index1.html#gallery">Gallery</a></li>
+                <li><a href="registration.html" class="active">Registration</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
+            </ul>
+            <button class="navbar-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="item">
+            <img src="logo.jpeg" class="card-img">
+            <h3>En Passant</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus alias voluptate quis repudiandae dicta odio tempore dolores exercitationem natus corporis eos fugit impedit.</p>
+        </div>
+    </div>
+
+    <div class="responsive-container">
+        <div class="grid-layout">
+            <div class="glow-card">
+                <img src="logo.jpeg" class="card-cover-img" alt="Event Image">
+                <div class="card-content">
+                    <h4>Grand Championship</h4>
+                    <button class="guidelines-btn">Guidelines</button>
+                </div>
+            </div>
+
+            <div class="glow-card">
+                <img src="logo.jpeg" class="card-cover-img" alt="Event Image">
+                <div class="card-content">
+                    <h4>Rapid Fire Round</h4>
+                    <button class="guidelines-btn">Guidelines</button>
+                </div>
+            </div>
+
+            <div class="glow-card">
+                <img src="logo.jpeg" class="card-cover-img" alt="Event Image">
+                <div class="card-content">
+                    <h4>Blitz Tournament</h4>
+                    <button class="guidelines-btn">Guidelines</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const toggleBtn = document.querySelector(".navbar-toggle");
+        const menu = document.querySelector(".navbar-menu");
+
+        toggleBtn.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+    </script> 
+</body>
+</html> -->
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* BODY */
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at center, #020617, #000);
+            color: white;
+            display: block;
+            padding: 100px 20px 20px 20px; 
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+        }
+
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 2rem;
+            max-width: 1600px;
+        }
+
+        .logo-img { height: 100px; }
+
+        .navbar-menu {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .navbar-menu li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            padding: 5px 15px;
+            border: 2px solid transparent;
+            transition: 0.4s;
+        }
+
+        .navbar-menu li a:hover {
+            background: rgba(33,33,33,0.7);
+            border: 2px solid white;
+        }
+
+        .navbar-toggle {
+            display: none;
+            background: transparent;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background: white;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* --- NEW TOP SECTION (TWO BOXES) --- */
+        .top-outer-container {
+            max-width: 1000px;
+            margin: 20px auto 60px auto;
+            padding: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .box-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .sub-box-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #cbd5e1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Box 1: Image Top + Underlined Heading */
+        .box-vertical {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid white;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 30px;
+        }
+
+        .box-vertical img {
+            width: 70%;
+            height: 50%;
+            border-radius: 50%;
+            
+            object-fit: cover;
+        }
+
+        .box-vertical h2 {
+            margin: 25px 0;
+            display: inline-block;
+            border-bottom: 3px solid white; /* Heading Underline */
+            padding-bottom: 8px;
+            font-size: 2rem;
+        }
+
+        /* Box 2: Image Left + Content Right */
+        .box-horizontal {
+            display: flex;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid white;
+            border-radius: 12px;
+            overflow: hidden;
+            min-height: 300px;
+        }
+
+        .box-horizontal .side-img {
+            width: 45%;
+            object-fit: cover;
+        }
+
+        .box-horizontal .side-content {
+            width: 55%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .box-horizontal h2 {
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        /* --- WIDE ITEM BOX SECTION --- */
+        .hero-section {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .item {
+            padding: 40px 80px;
+            font-size: 24px;
+            width: 95%;
+            max-width: 1000px;
+            color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+            transition: 0.4s;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 30px auto;
+        }
+
+        .item:hover {
+            box-shadow: 0 0 25px white, 0 0 50px white;
+            transform: scale(1.02);
+        }
+
+        .card-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.6);
+            margin-bottom: 20px;
+        }
+
+        /* --- LOWER RESPONSIVE GRID --- */
+        .responsive-container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .glow-card {
+            background: #0f172a;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.4s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glow-card:hover {
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .card-cover-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .card-content { padding: 30px; text-align: center; }
+
+        .guidelines-btn {
+            margin-top: 20px;
+            padding: 12px 35px;
+            background: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .guidelines-btn:hover { background: #fff; color: #000; }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 880px) {
+            .navbar-container .navbar-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                height: 100vh; width: 250px;
+                top: 0; right: 0;
+                background: rgba(0,0,0,0.95);
+                padding: 5rem 1.5rem;
+            }
+            .navbar-container .navbar-menu.active { display: flex; }
+            .navbar-toggle { display: block; }
+
+            /* Flip Horizontal Box to Vertical on Mobile */
+            .box-horizontal { flex-direction: column; }
+            .box-horizontal .side-img, .box-horizontal .side-content { width: 100%; }
+            .box-horizontal .side-img { height: 250px; }
+
+            .item { padding: 30px 20px; font-size: 18px; }
+            .box-vertical h2, .box-horizontal h2 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index1.html"><img src="logo_bg_remv.png" class="logo-img"></a>
+            <ul class="navbar-menu">
+                <li><a href="index1.html">Home</a></li>
+                <li><a href="events.html">Event</a></li>
+                <li><a href="registration.html" class="active">Registration</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
+            </ul>
+            <button class="navbar-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="top-outer-container">
+        <div class="box-wrapper">
+            
+            <div class="sub-box-container">
+                <p class="sub-box-title">Visual Spotlight</p>
+                <div class="box-vertical">
+                    <img src="logo.jpeg" alt="Vertical Image">
+                    <h2>Featured Event</h2>
+                    <p style="padding: 0 40px;">Experience the most anticipated tournament of the season. Join thousands of players in the ultimate test of strategy.</p>
+                </div>
+            </div>
+
+            <div class="sub-box-container">
+                <p class="sub-box-title">Technical Details</p>
+                <div class="box-horizontal">
+                    <img src="logo.jpeg" class="side-img" alt="Horizontal Image">
+                    <div class="side-content">
+                        <h2>Mastery & Precision</h2>
+                        <p>Learn the intricate mechanics of the game. Our expert-led sessions cover everything from opening theory to complex endgame patterns.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="hero-section">
+        <div class="item">
+            <img src="logo.jpeg" class="card-img">
+            <h3>En Passant</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus alias voluptate quis repudiandae dicta odio tempore dolores exercitationem natus corporis eos fugit impedit, assumenda ipsam corrupti eligendi in sint doloribus?</p>
+        </div>
+    </div>
+
+    <div class="responsive-container">
+        <div class="grid-layout">
+            <div class="glow-card">
+                <img src="logo.jpeg" class="card-cover-img" alt="Grid Image">
+                <div class="card-content">
+                    <h4>Grand Championship 2026</h4>
+                    <button class="guidelines-btn">Guidelines</button>
+                </div>
+            </div>
+            <div class="glow-card">
+                <img src="logo.jpeg" class="card-cover-img" alt="Grid Image">
+                <div class="card-content">
+                    <h4>Grand Championship 2026</h4>
+                    <button class="guidelines-btn">Guidelines</button>
+                </div>
+            </div>
+            <div class="glow-card">
+                <img src="logo.jpeg" class="card-cover-img" alt="Grid Image">
+                <div class="card-content">
+                    <h4>Grand Championship 2026</h4>
+                    <button class="guidelines-btn">Guidelines</button>
+                </div>
+            </div>
+            <div class="glow-card">
+                <img src="logo.jpeg" class="card-cover-img" alt="Grid Image">
+                <div class="card-content">
+                    <h4>Grand Championship 2026</h4>
+                    <button class="guidelines-btn">Guidelines</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const toggleBtn = document.querySelector(".navbar-toggle");
+        const menu = document.querySelector(".navbar-menu");
+
+        toggleBtn.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+    </script> 
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* BODY */
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at center, #020617, #000);
+            color: white;
+            display: block;
+            padding: 100px 20px 20px 20px; 
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+        }
+
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 2rem;
+            max-width: 1600px;
+        }
+
+        .logo-img { height: 100px; }
+
+        .navbar-menu {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .navbar-menu li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            padding: 5px 15px;
+            border: 2px solid transparent;
+            transition: 0.4s;
+        }
+
+        .navbar-menu li a:hover {
+            background: rgba(33,33,33,0.7);
+            border: 2px solid white;
+        }
+
+        .navbar-toggle {
+            display: none;
+            background: transparent;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background: white;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* --- FIRST SECTION BOXES (CIRCULAR IMAGES HERE) --- */
+        .top-outer-container {
+            max-width: 1000px;
+            margin: 20px auto 60px auto;
+            padding: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .box-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .sub-box-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #cbd5e1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Box 1: Vertical Layout */
+        .box-vertical {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid white;
+            border-radius: 12px;
+            text-align: center;
+            padding: 30px;
+            transition: 0.4s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 30px auto;
+
+        }
+
+        .box-vertical .circle-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%; /* CIRCULAR ONLY HERE */
+            border: 3px solid white;
+            transition: 0.4s ease;
+            margin: 0 auto;
+        }
+
+        .box-vertical:hover .circle-img {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px white;
+        }
+
+        .box-vertical h2 {
+            margin: 25px 0;
+            display: inline-block;
+            border-bottom: 3px solid white;
+            padding-bottom: 8px;
+            font-size: 2rem;
+            
+        }
+
+        /* Box 2: Horizontal Layout */
+        .box-horizontal {
+            display: flex;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid white;
+            border-radius: 12px;
+            min-height: 300px;
+            padding: 30px;
+            align-items: center;
+            transition: 0.4s;
+        }
+
+        .box-horizontal .side-img-container {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .box-horizontal .circle-img-side {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%; /* CIRCULAR ONLY HERE */
+            border: 3px solid white;
+            transition: 0.4s ease;
+        }
+
+        .box-horizontal:hover .circle-img-side {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px white;
+        }
+
+        .box-horizontal .side-content {
+            width: 60%;
+            padding: 0 20px;
+        }
+
+        /* --- MAIN ITEM BOX (SQUARE/ROUNDED IMAGE) --- */
+        .item {
+            padding: 40px 80px;
+            font-size: 24px;
+            width: 95%;
+            max-width: 1000px;
+            color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+            transition: 0.4s;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 30px auto;
+        }
+
+        .item:hover {
+            box-shadow: 0 0 25px white, 0 0 50px white;
+            transform: scale(1.02);
+        }
+
+        .card-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 15px; /* BACK TO ROUNDED SQUARE */
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.6);
+            margin-bottom: 20px;
+        }
+
+        /* --- BOTTOM GLOW CARDS (RECTANGLE COVER IMAGES) --- */
+        .responsive-container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .glow-card {
+            background: #0f172a;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.4s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glow-card:hover {
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .card-cover-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover; /* BACK TO FULL COVER RECTANGLE */
+            transition: 0.4s;
+        }
+
+        .card-content { padding: 30px; text-align: center; }
+
+        .guidelines-btn {
+            margin-top: 20px;
+            padding: 12px 35px;
+            background: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .guidelines-btn:hover { background: #fff; color: #000; }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 880px) {
+            .navbar-container .navbar-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                height: 100vh; width: 250px;
+                top: 0; right: 0;
+                background: rgba(0,0,0,0.95);
+                padding: 5rem 1.5rem;
+            }
+            .navbar-container .navbar-menu.active { display: flex; }
+            .navbar-toggle { display: block; }
+
+            .box-horizontal { flex-direction: column; text-align: center; }
+            .box-horizontal .side-img-container, .box-horizontal .side-content { width: 100%; }
+            .box-horizontal .side-img-container { margin-bottom: 20px; }
+
+            .item { padding: 30px 20px; font-size: 18px; }
+            .box-vertical h2, .box-horizontal h2 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index1.html"><img src="logo_bg_remv.png" class="logo-img"></a>
+            <ul class="navbar-menu">
+                <li><a href="index1.html">Home</a></li>
+                <li><a href="index1.html#about">About</a></li>
+                <li><a href="events.html">Event</a></li>
+                <li><a href="index1.html#gallery">Gallery</a></li>
+                <li><a href="registration.html" class="active">Registration</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
+            </ul>
+            <button class="navbar-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="top-outer-container">
+        <div class="box-wrapper">
+            
+            <div class="sub-box-container">
+                <p class="sub-box-title">Visual Spotlight</p>
+                <div class="box-vertical">
+                    <img src="logo.jpeg" class="circle-img" alt="Circular Vertical">
+                    <h2>Featured Event</h2>
+                    <p>Experience the most anticipated tournament of the season with our featured circular spotlights.</p>
+                </div>
+            </div>
+
+            <div class="sub-box-container">
+                <p class="sub-box-title">Technical Details</p>
+                <div class="box-horizontal">
+                    <div class="side-img-container">
+                        <img src="logo.jpeg" class="circle-img-side" alt="Circular Horizontal">
+                    </div>
+                    <div class="side-content">
+                        <h2>Mastery & Precision</h2>
+                        <p>Learn the intricate mechanics of the game. Our expert-led sessions cover everything from opening theory to patterns.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="hero-section">
+        <div class="item">
+            <img src="logo.jpeg" class="card-img">
+            <h3>En Passant</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus alias voluptate quis repudiandae dicta odio tempore dolores exercitationem natus corporis eos fugit impedit.</p>
+        </div>
+    </div>
+
+    <div class="responsive-container">
+        <div class="grid-layout">
+            <div class="glow-card">
+                <img src="logo.jpeg" class="card-cover-img" alt="Rectangle Cover">
+                <div class="card-content">
+                    <h4>Grand Championship 2026</h4>
+                    <button class="guidelines-btn">Guidelines</button>
+                </div>
+            </div>
+            <div class="glow-card">
+                <img src="logo.jpeg" class="card-cover-img" alt="Rectangle Cover">
+                <div class="card-content">
+                    <h4>Grand Championship 2026</h4>
+                    <button class="guidelines-btn">Guidelines</button>
+                </div>
+            </div>
+            <div class="glow-card">
+                <img src="logo.jpeg" class="card-cover-img" alt="Rectangle Cover">
+                <div class="card-content">
+                    <h4>Grand Championship 2026</h4>
+                    <button class="guidelines-btn">Guidelines</button>
+                </div>
+            </div>
+            <div class="glow-card">
+                <img src="logo.jpeg" class="card-cover-img" alt="Rectangle Cover">
+                <div class="card-content">
+                    <h4>Grand Championship 2026</h4>
+                    <button class="guidelines-btn">Guidelines</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const toggleBtn = document.querySelector(".navbar-toggle");
+        const menu = document.querySelector(".navbar-menu");
+
+        toggleBtn.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+    </script> 
+</body>
+</html>

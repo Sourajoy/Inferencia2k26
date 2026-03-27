@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - INFERENCIA 2025</title>
+    <style>
+        /* Base Body Styles */
+        body {
+            margin: 0;
+            padding: 50px 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Centers the box vertically and horizontally */
+            background: linear-gradient(135deg, #070913 0%, #020306 100%);
+            color: white;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            position: relative;
+        }
+
+        /* Subtle Background Stars/Particles Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.1), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.15), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, rgba(255,255,255,0.1), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.05), rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* The Box Container */
+        .container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 900px;
+            padding: 50px 40px;
+            text-align: center;
+            
+            /* Box Styling */
+            background: rgba(10, 12, 20, 0.7); 
+            border: 1px solid rgba(247, 160, 40, 0.15); 
+            border-radius: 15px; 
+            backdrop-filter: blur(8px); 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(247, 160, 40, 0.05); 
+            
+            /* Smooth transition for hover effects */
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+
+        /* Hover & Glow Effect */
+        .container:hover {
+            transform: scale(1.01); 
+            border-color: rgba(247, 160, 40, 0.6); 
+            box-shadow: 
+                0 0 15px rgba(247, 160, 40, 0.8),
+                0 0 30px rgba(247, 160, 40, 0.5),
+                0 0 45px rgba(247, 160, 40, 0.3);
+        }
+
+        /* Main Heading */
+        h1 {
+            color: #f7a028;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 2.8rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            margin: 0 0 20px 0;
+            text-shadow: 0 0 10px rgba(247, 160, 40, 0.2);
+        }
+
+        /* Horizontal Separator Line */
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #f7a028;
+            opacity: 0.4;
+            width: 100%;
+            margin: 0 auto 35px auto;
+        }
+
+        /* --- FAQ SECTION STYLES --- */
+        .faq-item {
+            border-bottom: 1px solid rgba(247, 160, 40, 0.2);
+            margin-bottom: 15px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none; /* Removes line under the last question */
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: #f7a028;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 1.3rem;
+            text-align: left;
+            padding: 20px 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s ease;
+            outline: none;
+        }
+
+        .faq-question:hover {
+            color: #fff;
+            text-shadow: 0 0 8px rgba(247, 160, 40, 0.6);
+        }
+
+        /* The plus/minus icon */
+        .faq-icon {
+            font-size: 1.8rem;
+            transition: transform 0.3s ease;
+            color: #dcdcdc;
+        }
+
+        /* Rotates the + to an x when active */
+        .faq-question.active .faq-icon {
+            transform: rotate(45deg);
+            color: #f7a028;
+        }
+
+        /* The hidden answer block */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            text-align: left;
+            padding: 0 10px; /* Aligns text with the question */
+        }
+
+        .faq-answer p {
+            font-size: 1.15rem;
+            color: #dcdcdc;
+            line-height: 1.8;
+            padding-bottom: 20px;
+            margin: 0;
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 25px;
+            color: #f7a028;
+            text-decoration: none;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 1.1rem;
+            border: 1px solid rgba(247, 160, 40, 0.5);
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: rgba(247, 160, 40, 0.1);
+            box-shadow: 0 0 15px rgba(247, 160, 40, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .container { padding: 30px 20px; }
+            .faq-question { font-size: 1.1rem; padding: 15px 5px; }
+            .faq-answer p { font-size: 1rem; }
+            .faq-icon { font-size: 1.5rem; }
+        }
+
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+        }
+
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 2rem;
+            max-width: 1600px;
+        }
+
+        .logo-img {
+            height: 100px;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .navbar-menu li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            padding: 5px 15px;
+            border: 2px solid transparent;
+            transition: 0.4s;
+        }
+
+        .navbar-menu li a:hover {
+            background: rgba(33,33,33,0.7);
+            border: 2px solid white;
+        }
+
+
+        .navbar-toggle {
+            display: none;
+            background: transparent;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background: white;
+            transition: all 0.3s ease-in-out;
+        }
+
+        @media (max-width: 880px) {
+
+
+            body {
+            
+            background-size: 600px 950px;
+            background-attachment: fixed;
+            }
+
+            .navbar {
+                backdrop-filter: none;
+
+            }
+
+            .navbar-container .navbar-menu {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.7rem !important;
+                position: absolute;
+                height: 100vh;
+                width: 250px;
+                top: 0;
+                right: 0;
+                padding: 5rem 1.5rem;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+                backdrop-filter: blur(100px);
+            }
+
+
+            .navbar-container .navbar-menu.active {
+                display: flex;
+            }
+
+
+
+            .navbar-toggle {
+                display: block;
+                z-index: 999;
+                /* so that it stays on top */
+            }
+
+
+            /* .navbar-toggle.active.bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .navbar-toggle.active.bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .navbar-toggle.active.bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            } */
+        }
+
+
+        @media (max-width: 480px) {
+            .navbar-container {
+                padding: 0 1rem;
+            }
+
+            .navbar-logo {
+                font-size: 1.7rem;
+            }
+
+            .navbar-container .navbar-menu li a {
+                font-size: 1.2rem;
+                padding: 3px 15px;
+            }
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+    <div class="navbar-container">
+        <a href="index1.html">
+            <img src="logo_bg_remv.png" class="logo-img">
+        </a>
+
+        <ul class="navbar-menu">
+            <li><a href="index1.html">Home</a></li>
+            <li><a href="index1.html#about">About</a></li>
+            <li><a href="events.html">Event</a></li>
+            <li><a href="index1.html#gallery">Gallery</a></li>
+            <li><a href="registration.html" class="active">Registration</a></li>
+            <li><a href="contactus.html">Contact</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
+        </ul>
+        <button class="navbar-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+        </button>
+            
+    </div>
+    </nav>
+
+
+
+    <div class="container">
+        <h1>Frequently Asked Questions</h1>
+        <hr>
+        
+        <div class="faq-item">
+            <button class="faq-question">Who is eligible to participate? <span class="faq-icon">+</span></button>
+            <div class="faq-answer">
+                <p>Any current college student with a valid student ID is eligible to participate. As per the guidelines, cross-college teams are also fully permitted and encouraged!</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Is there a registration fee? <span class="faq-icon">+</span></button>
+            <div class="faq-answer">
+                <p>Information regarding the registration fee (if applicable) will be detailed in your confirmation email or on the payment portal following this form.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Can I change my team members later? <span class="faq-icon">+</span></button>
+            <div class="faq-answer">
+                <p>Once registered, team members cannot be changed without prior approval from the administrative committee. Please reach out to our contact support if you face an emergency.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">When does the event start? <span class="faq-icon">+</span></button>
+            <div class="faq-answer">
+                <p>Please refer to the countdown timer on the main registration page to see exactly how much time is left until the official kick-off. Keep an eye on your email for the detailed itinerary.</p>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-btn">← Back to Registration</a>
+    </div>
+
+    <script>
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                // Close all other open answers
+                faqQuestions.forEach(q => {
+                    if (q !== question) {
+                        q.classList.remove('active');
+                        q.nextElementSibling.style.maxHeight = null;
+                    }
+                });
+
+                // Toggle active class on the clicked button
+                question.classList.toggle('active');
+                
+                // Get the hidden answer div
+                const answer = question.nextElementSibling;
+                
+                // If the question is active, expand the answer block
+                if (question.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    // Otherwise, collapse it
+                    answer.style.maxHeight = null;
+                }
+            });
+        });
+
+
+         const toggleBtn = document.querySelector(".navbar-toggle");
+        const menu = document.querySelector(".navbar-menu");
+
+        toggleBtn.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+    </script>
+
+</body>
+</html>

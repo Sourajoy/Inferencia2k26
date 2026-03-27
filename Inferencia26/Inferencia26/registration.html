@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register for INFERENCIA 2025</title>
+    <style>
+        /* Base Body Styles */
+         body {
+            margin: 0;
+            padding: 40px 0; 
+            min-height: 90vh;
+            min-width: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #070913 0%, #020306 100%);
+            color: white;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            position: relative;
+            
+        }
+
+        
+        body::before {
+            content: '';
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.1), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.15), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, rgba(255,255,255,0.1), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.05), rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            pointer-events: none;
+            z-index: 1;
+        } 
+
+
+
+
+
+
+    /* body {
+    margin: 0;
+    padding: 120px 0 40px; 
+    min-height: 100vh;
+    background: linear-gradient(135deg, #070913 0%, #020306 100%);
+    color: white;
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+} */
+
+/* ---------------- NAVBAR ---------------- */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(20px);
+    z-index: 999;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2rem;
+    max-width: 1600px;
+}
+
+.logo-img {
+    height: 100px;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.navbar-menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 5px 15px;
+    border: 2px solid transparent;
+    transition: 0.4s;
+}
+
+.navbar-menu li a:hover {
+    background: rgba(33,33,33,0.7);
+    border: 2px solid white;
+}
+
+
+.navbar-toggle {
+    display: none;
+    background: transparent;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background: white;
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 880px) {
+
+
+    body {
+     
+     background-size: 600px 950px;
+     background-attachment: fixed;
+    }
+
+    .navbar {
+        backdrop-filter: none;
+
+    }
+
+    .navbar-container .navbar-menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.7rem !important;
+        position: absolute;
+        height: 100vh;
+        width: 250px;
+        top: 0;
+        right: 0;
+        padding: 5rem 1.5rem;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+        backdrop-filter: blur(100px);
+    }
+
+
+    .navbar-container .navbar-menu.active {
+        display: flex;
+    }
+
+
+
+    .navbar-toggle {
+        display: block;
+        z-index: 999;
+        /* so that it stays on top */
+    }
+
+
+    /* .navbar-toggle.active.bar:nth-child(2) {
+        opacity: 0;
+    }
+
+     .navbar-toggle.active.bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+     .navbar-toggle.active.bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    } */
+}
+
+
+@media (max-width: 480px) {
+    .navbar-container {
+        padding: 0 1rem;
+    }
+
+    .navbar-logo {
+        font-size: 1.7rem;
+    }
+
+    .navbar-container .navbar-menu li a {
+        font-size: 1.2rem;
+        padding: 3px 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 20px;
+            padding: 50px 40px;
+
+            /* Center content */
+            display: flex;
+            flex-direction: column;      /* keeps content stacked */
+            justify-content: center;     /* vertical center */
+            align-items: center;         /* horizontal center */
+            text-align: center;
+
+            /* Box Styling */
+            background: rgba(10, 12, 20, 0.7);
+            border: 1px solid rgba(247, 160, 40, 0.15);
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+
+            /* Shadow */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8),
+                        0 0 20px rgba(247, 160, 40, 0.05);
+
+            /* Smooth transition */
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+
+        /* Hover & Glow Effect */
+        .container:hover {
+            transform: scale(1.01); /* Reduced scale slightly since the box is larger now */
+            border-color: rgba(247, 160, 40, 0.6); 
+            box-shadow: 
+                0 0 15px rgba(247, 160, 40, 0.8),
+                0 0 30px rgba(247, 160, 40, 0.5),
+                0 0 45px rgba(247, 160, 40, 0.3);
+        }
+
+        /* Timer Styles */
+        .countdown-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .time-box {
+            background: rgba(247, 160, 40, 0.1);
+            border: 1px solid rgba(247, 160, 40, 0.3);
+            border-radius: 8px;
+            padding: 10px 15px;
+            min-width: 75px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: inset 0 0 10px rgba(247, 160, 40, 0.05);
+        }
+
+        .time-box span {
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #f7a028;
+            text-shadow: 0 0 10px rgba(247, 160, 40, 0.5);
+        }
+
+        .time-box small {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 0.8rem;
+            color: #dcdcdc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* Main Heading */
+        h1 {
+            color: #f7a028;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 2.8rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            margin: 0 0 20px 0;
+            text-shadow: 0 0 10px rgba(247, 160, 40, 0.2);
+        }
+
+        /* Horizontal Separator Line */
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #f7a028;
+            opacity: 0.4;
+            width: 100%;
+            margin: 0 auto 35px auto;
+        }
+
+        /* Paragraph Text */
+        p {
+            color: #dcdcdc;
+            font-size: 1.35rem;
+            line-height: 1.8;
+            margin: 0 0 20px 0;
+            word-spacing: 2px;
+        }
+
+        /* Highlighted Call to Action Text */
+        .cta-text {
+            color: #f7a028;
+            font-weight: bold;
+            font-size: 1.35rem;
+            margin-top: 25px;
+        }
+
+        /* --- NEW: RULES SECTION STYLES --- */
+        .rules-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px dashed rgba(247, 160, 40, 0.3); /* Soft divider */
+        }
+
+        .rules-section h2 {
+            color: #f7a028;
+            font-size: 1.8rem;
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+
+        .rules-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left; /* Aligns the text to the left */
+        }
+
+        .rules-list li {
+            display: flex;
+            align-items: flex-start; /* Keeps the number at the top of multi-line text */
+            margin-bottom: 25px;
+            font-size: 1.15rem;
+            color: #dcdcdc;
+            line-height: 1.6;
+        }
+
+        /* Custom Orange Circle Numbers */
+        .rules-list .number {
+            background-color: #f7a028;
+            color: #000;
+            font-family: 'Arial', sans-serif; /* Cleaner font for the numbers */
+            font-weight: bold;
+            font-size: 1rem;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0; /* Prevents the circle from squishing */
+            margin-right: 15px;
+            margin-top: 2px; /* Slight adjustment to align with text */
+        }
+
+        /* Link Styling */
+        .rules-link {
+            color: #f7a028;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .rules-link:hover {
+            text-decoration: underline;
+            text-shadow: 0 0 8px rgba(247, 160, 40, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            p, .cta-text { font-size: 0.9rem; }
+            .container { padding: 30px 20px; }
+            .time-box span { font-size: 1rem; }
+            .time-box { min-width: 30px; padding: 6px 8px; }
+            
+            .rules-section h2 { font-size: 1.5rem; }
+            .rules-list li { font-size: 1rem; }
+            .rules-list .number { width: 15px; height: 10px; font-size: 0.5rem;  }
+            .time-box span {font-family: 'Consolas', 'Courier New', monospace; font-size: 1rem;}
+        }
+
+
+        /* @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .container { padding: 30px 20px; }
+            .faq-question { font-size: 1.1rem; padding: 15px 5px; }
+            .faq-answer p { font-size: 1rem; }
+            .faq-icon { font-size: 1.5rem; }
+        } */
+            button {
+            padding: 1em 2em;
+            background-color: gold;
+            border: none;
+            color:black;
+            border-radius: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            position: relative;
+
+        }
+
+
+
+        button:hover {
+            box-shadow: 0 0 20px goldenrod, 0 0 20px goldenrod;
+            transform: scale(1.05);
+
+        
+        }  
+    </style>
+</head>
+<body>
+
+
+    <nav class="navbar">
+    <div class="navbar-container">
+        <a href="index1.html">
+            <img src="logo_bg_remv.png" class="logo-img">
+        </a>
+
+        <ul class="navbar-menu">
+            <li><a href="index1.html">Home</a></li>
+            <li><a href="index1.html#about">About</a></li>
+            <li><a href="events.html">Event</a></li>
+            <li><a href="index1.html#gallery">Gallery</a></li>
+            <li><a href="registration.html" class="active">Registration</a></li>
+            <li><a href="contactus.html">Contact</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
+        </ul>
+        <button class="navbar-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+        </button>
+            
+    </div>
+    </nav>
+
+    <div class="container">
+        
+        <div class="countdown-wrapper" id="timer">
+            <div class="time-box">
+                <span id="days">02</span>
+                <small>Days</small>
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span>
+                <small>Hours</small>
+            </div>
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <small>Minutes</small>
+            </div>
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <small>Seconds</small>
+            </div>
+        </div>
+
+        <h1>Register for INFERENCIA 2025</h1>
+        <hr>
+        <p>
+            Get ready to dive into a world of excitement, creativity and unforgettable moments! By<br>
+            registering, you're not just joining an event—you're becoming part of our vibrant<br>
+            INFERENCIA family. Let's create magic, make memories and celebrate together.
+        </p>
+        <p class="cta-text">
+            Don't wait—your adventure starts here!
+        </p>
+
+        <div class="rules-section">
+            <h2>GENERAL RULES AND GUIDELINES</h2>
+            
+            <ul class="rules-list">
+                <li>
+                    <span class="number">1</span>
+                    <span>If you have found your teammates for Stochast-O-Liga, only one of you needs to fill out this form.</span>
+                </li>
+                <li>
+                    <span class="number">2</span>
+                    <span>Cross-college teams are allowed.</span>
+                </li>
+                <li>
+                    <span class="number">3</span>
+                    <span>Please enter your email address correctly.</span>
+                </li>
+                <li>
+                    <span class="number">4</span>
+                    <span>You will receive a confirmation email from us within 24 hours of registration. If not received, please <a href="contactus.html" class="rules-link">contact us</a>.</span>
+                </li>
+            </ul>
+        </div>
+        <div class="button"><button>Register Here</button></a></div> 
+
+    </div>
+    
+
+    <script>
+        const countdownTime = new Date().getTime() + (2 * 24 * 60 * 60 * 1000);
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownTime - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "<div class='time-box'><span>TIME IS UP!</span></div>";
+            }
+        }, 1000);
+
+        
+        const toggleBtn = document.querySelector(".navbar-toggle");
+        const menu = document.querySelector(".navbar-menu");
+
+        toggleBtn.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+
+    </script>
+
+</body>
+</html>
