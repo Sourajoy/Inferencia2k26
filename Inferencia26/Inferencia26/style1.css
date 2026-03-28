@@ -856,6 +856,82 @@ button {
     }
 
 
+ .site-footer {
+    background: rgba(10, 10, 10, 0.85); /* Dark, slightly transparent background */
+    color: #e0e0e0;
+    padding: 40px 20px 20px;
+    font-family: sans-serif;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 10; /* Ensures it sits above the Vanta canvas */
+    backdrop-filter: blur(5px);
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.site-footer h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.footer-about, .footer-location, .footer-contact {
+    flex: 1;
+    min-width: 250px;
+}
+
+.site-footer p {
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.site-footer a {
+    color: #32e4ed; /* A nice neon cyan to match tech/stats vibes */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+    color: #ffffff;
+}
+
+.social-links {
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.social-links a {
+    margin: 0 5px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+    color: #aaaaaa;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
 
 
   
