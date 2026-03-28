@@ -523,36 +523,32 @@
     
 
     <script>
-        const countdownTime = new Date().getTime() + (2 * 24 * 60 * 60 * 1000);
+        // Set your exact event deadline here!
+        // Format: "Month Day, Year HH:MM:SS"
+        const countdownTime = new Date("April 10, 2026 23:59:59").getTime();
 
         const x = setInterval(function() {
             const now = new Date().getTime();
             const distance = countdownTime - now;
 
+            // Time calculations for days, hours, minutes, and seconds
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+            // Output the results with a leading zero if the number is less than 10
+            document.getElementById("days").innerHTML = days < 10 ? "0" + Math.max(0, days) : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + Math.max(0, hours) : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + Math.max(0, minutes) : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + Math.max(0, seconds) : seconds;
 
+            // If the countdown is finished, stop the timer and display a message
             if (distance < 0) {
                 clearInterval(x);
-                document.getElementById("timer").innerHTML = "<div class='time-box'><span>TIME IS UP!</span></div>";
+                document.getElementById("timer").innerHTML = "<div class='time-box'><span>REGISTRATION CLOSED</span></div>";
             }
         }, 1000);
-
-        
-        const toggleBtn = document.querySelector(".navbar-toggle");
-        const menu = document.querySelector(".navbar-menu");
-
-        toggleBtn.addEventListener("click", () => {
-            menu.classList.toggle("active");
-        });
-
     </script>
 
 </body>
