@@ -402,7 +402,7 @@ button {
 /* --- Responsive 3D Wrapper --- */
 .image {
     margin: 60px auto; 
-    width: 60vw;          /* Smaller width on mobile to prevent side-clipping */
+    width: 57vw;          /* Smaller width on mobile to prevent side-clipping */
     max-width: 320px;     /* Keeps images from getting too huge on desktop */
     height: 200px;        
     perspective: 1000px;
