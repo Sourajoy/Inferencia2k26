@@ -467,7 +467,7 @@
         
         <div class="countdown-wrapper" id="timer">
             <div class="time-box">
-                <span id="days">02</span>
+                <span id="days">00</span>
                 <small>Days</small>
             </div>
             <div class="time-box">
@@ -523,33 +523,47 @@
     
 
     <script>
-        // Set your exact event deadline here!
-        // Format: "Month Day, Year HH:MM:SS"
-        const countdownTime = new Date("April 10, 2026 23:59:59").getTime();
+    // Set your exact event deadline here
+    const countdownTime = new Date("April 10, 2026 23:59:59").getTime();
 
+    // 1. Wrap the math inside a reusable function
+    function updateTimer() {
+        const now = new Date().getTime();
+        const distance = countdownTime - now;
+
+        // If the countdown is finished, display a message and tell the interval to stop
+        if (distance < 0) {
+            document.getElementById("timer").innerHTML = "<div class='time-box'><span>REGISTRATION CLOSED</span></div>";
+            return true; 
+        }
+
+        // Time calculations
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Update the HTML
+        document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+        document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+        
+        return false;
+    }
+
+    // 2. Run the function immediately so there is no 1-second delay
+    const isOver = updateTimer();
+
+    // 3. Start the loop ONLY if the timer isn't already finished
+    if (!isOver) {
         const x = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = countdownTime - now;
-
-            // Time calculations for days, hours, minutes, and seconds
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Output the results with a leading zero if the number is less than 10
-            document.getElementById("days").innerHTML = days < 10 ? "0" + Math.max(0, days) : days;
-            document.getElementById("hours").innerHTML = hours < 10 ? "0" + Math.max(0, hours) : hours;
-            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + Math.max(0, minutes) : minutes;
-            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + Math.max(0, seconds) : seconds;
-
-            // If the countdown is finished, stop the timer and display a message
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("timer").innerHTML = "<div class='time-box'><span>REGISTRATION CLOSED</span></div>";
+            const finished = updateTimer();
+            if (finished) {
+                clearInterval(x); // Stop the loop when time is up
             }
         }, 1000);
-    </script>
-
+    }
+</script>
 </body>
 </html>
