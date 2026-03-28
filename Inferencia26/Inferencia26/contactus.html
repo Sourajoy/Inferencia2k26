@@ -304,6 +304,15 @@ body {
   }
 }
 
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+    
+      display: inline-block;   /* key fix */
+      flex: 1 1 280px;         /* same as .card */
+      max-width: 320px;        /* same as .card */
+    }
+
 </style>
 </head>
 
@@ -342,30 +351,35 @@ body {
 
   <div class="card-container">
 
-    <div class="card">
-      <div class="icon">
-        <a href="https://WA.me/9157573986"><img src="phone.png" alt=""></a>
+    <a href="https://WA.me/9157573986" class="card-link">
+      <div class="card">
+        <div class="icon">
+          <img src="phone.png" alt="">
+        </div>
+        <h3>Sourajoy</h3>
+        <p>9157573986</p>
       </div>
-      <h3>Sourajoy</h3>
-      <p>9157573986</p>
-    </div>
+    </a>
 
-    <div class="card">
-      <div class="icon">
-       <a href="https://WA.me/8274013567"><img src="phone.png" alt=""></a>
+    <a href="https://WA.me/9157573986" class="card-link">
+      <div class="card">
+        <div class="icon">
+          <img src="phone.png" alt="">
+        </div>
+        <h3>Rajrit</h3>
+        <p>8274013567</p>
       </div>
-      <h3>Rajrit</h3>
-      <p>8274013567</p>
-    </div>
+    </a>
 
-    <div class="card">
-      <div class="icon">
-        <a href="https://WA.me/7980752860"><img src="phone.png" alt=""></a>
-
+    <a href="https://WA.me/9157573986" class="card-link">
+      <div class="card">
+        <div class="icon">
+          <img src="phone.png" alt="">
+        </div>
+        <h3>Upal</h3>
+        <p>7980752860</p>
       </div>
-      <h3>Upal</h3>
-      <p>7980752860</p>
-    </div>
+    </a>
 
   </div>
 
@@ -374,26 +388,36 @@ body {
 
   <div class="card-container">
 
-    <div class="card">
-      <div class="icon">
-        <a href="mailto:inferencia.rkmrc@gmail.com" style="vertical-align:top"><img src="email.png" alt=""></a>
+    <div class="card-container">
+    <a href="mailto:inferencia.rkmrc@gmail.com" style="vertical-align:top"class="card-link">
+      <div class="card">
+        <div class="icon">
+          <img src="email.png" alt="">
+        </div>
+        <h3>Email</h3>
+        
       </div>
-      <h3>Email</h3>
-    </div>
+    </a>
 
-    <div class="card">
-      <div class="icon">
-        <a href="https://www.facebook.com/people/Inferencia-2k24/100083186236126"><img src="facebook.png" alt=""></a>
+    <a href="https://www.facebook.com/people/Inferencia-2k24/100083186236126" class="card-link">
+      <div class="card">
+        <div class="icon">
+          <img src="facebook.png" alt="">
+        </div>
+        <h3>Facebook</h3>
+        
       </div>
-      <h3>Facebook</h3>
-    </div>
+    </a>
 
-    <div class="card">
-      <div class="icon">
-        <a href="https://www.instagram.com/inferencia._?igsh=MWFxam1uY3p4Y2ViMQ=="><img src="instagram.jpeg" alt=""></a>
+    <a href="https://www.instagram.com/inferencia._?igsh=MWFxam1uY3p4Y2ViMQ==" class="card-link">
+      <div class="card">
+        <div class="icon">
+          <img src="instagram.jpeg" alt="">
+        </div>
+        <h3>Instagram</h3>
+        
       </div>
-      <h3>Instagram</h3>
-    </div>
+    </a>
 
   </div>
 
