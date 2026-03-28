@@ -313,6 +313,32 @@ body {
       max-width: 320px;        /* same as .card */
     }
 
+    /* Tablet */
+@media (max-width: 900px) {
+  .card-link {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-link {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+
 </style>
 </head>
 
