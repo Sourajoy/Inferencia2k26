@@ -854,3 +854,41 @@ button {
         margin: 0;
         color: #ddd;
     }
+
+
+
+
+  <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>Inferencia 2026</h3>
+                <p>The Annual Academic Fest organized by the Department of Statistics, RKMRC </p>
+            </div>
+            
+            <div class="footer-location">
+                <h3>Location</h3>
+                <p>
+                    <strong>Department of Statistics</strong><br>
+                    Ramakrishna Mission Residential College (Autonomous)<br>
+                    Narendrapur, Kolkata<br>
+                    West Bengal 700103, India<br><br>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Ramakrishna+Mission+Residential+College+Narendrapur" target="_blank" rel="noopener noreferrer">
+                        📍 View on Google Maps
+                    </a>
+                </p>
+            </div>
+
+            <div class="footer-contact">
+                <h3>CONTACT US</h3>
+                <p>Email: <a href="mailto:inferencia.rkmrc@gmail.com">inferencia.rkmrc@gmail.com</a></p>
+                <div class="social-links">
+                    <a href="#">Instagram</a> | 
+                    <a href="#">Facebook</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Inferencia, RKMRC Narendrapur.</p>
+        </div>
+    </footer>
+ 
