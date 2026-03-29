@@ -452,6 +452,25 @@
         toggleBtn.addEventListener("click", () => {
             menu.classList.toggle("active");
         });
+        document.addEventListener('click', (e) => {
+    const isClickInsideMenu = navbarMenu.contains(e.target);
+    const isClickOnToggle = navbarToggle.contains(e.target);
+
+    if (!isClickInsideMenu && !isClickOnToggle) {
+        navbarMenu.classList.remove('active');   // ✅ close menu
+        navbarToggle.classList.remove('active'); // ✅ reset icon
+    }
+});
+
+const navLinks = document.querySelectorAll('.navbar-menu a');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navbarMenu.classList.remove('active');   // ✅ close menu
+        navbarToggle.classList.remove('active'); // ✅ reset toggle icon
+    });
+});
+
     </script> 
 </body>
 </html>
